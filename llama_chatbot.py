@@ -26,8 +26,8 @@ model_path = expanduser("llama-2-13b-chat.Q3_K_M.gguf")
 
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 
-n_gpu_layers = 30  # The number of layers to put on the GPU. The rest will be on the CPU. If you don't know how many layers there are, you can use -1 to move all to GPU.
-n_batch = 512  #Should be between 1 and n_ctx, consider the amount of VRAM in your GPU.
+n_gpu_layers = 30
+n_batch = 512  
 
 llm = LlamaCpp(
     model_path=model_path,
@@ -52,12 +52,3 @@ while True:
     response = chain.invoke({"text": prompt})
     # print(response)
     # print("Chatbot:", response)
-
-
-# print(
-#     chain.run(
-#         text="What can I see in Vienna? Propose a few locations. Names only, no details."
-#     )
-# )
-
-# print(chain.run(text="Tell me more about #2."))

@@ -235,7 +235,7 @@ collection = create_chroma_collection()
 docsearch = collection.as_retriever()
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 
-llm = ChatOllama(base_url="http://myip-scmda-s1:11434", model="openchat", temperature=0.9)
+llm = ChatOllama(base_url="http://", model="openchat", temperature=0.9)
 
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 chain = load_qa_chain(llm, chain_type="stuff", callback_manager=callback_manager)
